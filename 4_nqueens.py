@@ -1,4 +1,3 @@
-# coding: utf-8
 import sys, os, random, time
 
 class Board:
@@ -6,15 +5,14 @@ class Board:
         self.size = size
         self.board = [[False for j in range(self.size)] for i in range(self.size)]
         self.time = time.time()
-
-        os.system("clear")
+        self.cmd_clear = "cls" if os.name == "nt" else "clear"
+        os.system(self.cmd_clear)
         if self.find_positions():
-            os.system("clear")
+            os.system(self.cmd_clear)
             print(self)
-            pass
         else:
-            os.system("clear")
-            print("Solução não encontrada. Último estado:")
+            os.system(self.cmd_clear)
+            print("Solucao nao encontrada. Ultimo estado:")
             print(self)
 
     def __str__(self):
@@ -40,7 +38,7 @@ class Board:
                     self.board[i][col] = True
                 if time.time() - self.time > 0.03:
                     self.time = time.time()
-                    os.system("clear")
+                    os.system(self.cmd_clear)
                     print(self)
                 if self.find_positions(col+1):
                     return True
