@@ -7,29 +7,19 @@ class Interval:
         return "(" + str(self.start) + "," + str(self.end) + ")"
 
     def __lt__(self, other):
-        if other == None:
-            return False
-        return self.end < other.end
+        return False if other is None else self.end < other.end
 
     def __le__(self, other):
-        if other == None:
-            return False
-        return self.end <= other.end
+        return False if other is None else self.end <= other.end 
 
     def __gt__(self, other):
-        if other == None:
-            return False
-        return self.end > other.end
+        return False if other is None else self.end > other.end
 
     def __ge__(self, other):
-        if other == None:
-            return False
-        return self.end >= other.end
+        return False if other is None else self.end >= other.end
 
     def __eq__(self, other):
-        if other == None:
-            return False
-        return self.end == other.end
+        return False if other is None else self.end == other.end
 
 
 def sdm(intervals):
